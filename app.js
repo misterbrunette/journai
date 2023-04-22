@@ -144,11 +144,12 @@ async function fetchJournalEntries() {
 // Note: Define the function to display journal entries in a table
 function displayJournalEntries(journalEntries) {
   const table = document.getElementById('journal-entries-table');
+  const select = document.getElementById('journal-entries');
 
-// Remove any existing rows from the table
-while (table.firstChild) {
-  table.removeChild(table.firstChild);
-}
+  // Remove any existing rows from the table
+  while (table.rows.length > 0) {
+    table.deleteRow(0);
+  }
 
 // Add header row to table
 const headerRow = table.insertRow();
@@ -188,6 +189,42 @@ saveButton.disabled = true;
 } catch (error) {
 console.error('Save entry error:', error);
 }
+});
+// Remove any existing options from the select element
+  select.innerHTML = '';
+
+  // Add each journal entry to the table and select element
+  journalEntries.forEach((entry) => {
+    const row = table.insertRow();
+    const titleCell = row.insertCell();
+    const dateCell = row.insertCell();
+
+    titleCell.textContent = entry.title;
+    dateCell.textContent = new Date(entry.createdAt.toDate()).toLocaleString();
+
+    const option = document.createElement('option');
+    option.value = entry.id;
+    option.textContent = entry.title;
+    select.appendChild(option);
+  });
+} 
+const requestFeedbackButton = document.getElementById('request-feedback');
+requestFeedbackButton.addEventListener('click', async () => {
+  const select = document.getElementById('journal-entries');
+  const entryId = select.value;
+
+  // Make a request to the Journai AI API to get feedback for the selected journal entry
+  const response = await fetch(`https://your-journai-ai-api.com/feedback?entryId=${entryId}`);
+
+  // Handle the response from the API
+  if (response.ok) {
+    const feedback = await response.text();
+    const feedbackText = document.getElementById('feedback-text');
+    feedbackText.textContent = feedback;
+  } else {
+    const error = await response.text();
+    console.error(`Failed to get feedback: ${error}`);
+  }
 });
 
 // Update user banner when authentication state changes
