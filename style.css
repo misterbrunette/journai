@@ -1,3 +1,14 @@
+/* Add the following styles */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form input[type="submit"] {
+  width: auto;
+  align-self: flex-start;
+}
+
 body {
   margin: 0;
   padding: 0;

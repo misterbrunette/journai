@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journai</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app-compat.js"></script>
+  <!-- Add the Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore-compat.js"></script>
+
+  <title>Journai</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Journai</h1>
-        <nav>
-            <ul>
-                <li id="sign-in-link"><a href="#">Sign In</a></li>
-                <li id="sign-up-link"><a href="#">Sign Up</a></li>
-                <li id="sign-out-link" style="display: none;"><a href="#">Sign Out</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+  <header>
+    <h1>Journai</h1>
+    <nav>
+      <ul>
+        <li><a href="#" id="sign-in-link">Sign In</a></li>
+        <li><a href="#" id="sign-up-link">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
         <section id="journal">
             <h2>My Journal Entries</h2>
             <form id="journal-form">
@@ -40,44 +46,45 @@
         </section>
     </main>
 
-    <!-- Sign in modal -->
-    <div id="sign-in-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Sign In</h2>
-            <form id="sign-in-form">
-                <label for="sign-in-email">Email:</label>
-                <input type="email" id="sign-in-email" required>
-                <label for="sign-in-password">Password:</label>
-                <input type="password" id="sign-in-password" required>
-                <button type="submit">Sign In</button>
-                <p id="auth-error"></p>
-            </form>
-        </div>
+  <!-- Sign In Modal -->
+  <div id="sign-in-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign In</h2>
+      <form id="sign-in-form" class="modal-form">
+        <label for="sign-in-email">Email</label>
+        <input type="email" id="sign-in-email" required>
+        <label for="sign-in-password">Password</label>
+        <input type="password" id="sign-in-password" required>
+        <input type="submit" value="Sign In">
+      </form>
     </div>
+  </div>
 
-    <!-- Sign up modal -->
-    <div id="sign-up-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Sign Up</h2>
-            <form id="sign-up-form">
-                <label for="sign-up-email">Email:</label>
-                <input type="email" id="sign-up-email" required>
-                <label for="sign-up-password">Password:</label>
-                <input type="password" id="sign-up-password" required>
-                <button type="submit">Sign Up</button>
-                <p id="auth-error"></p>
-            </form>
-        </div>
+  <!-- Sign Up Modal -->
+  <div id="sign-up-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="sign-up-form" class="modal-form">
+        <label for="sign-up-email">Email</label>
+        <input type="email" id="sign-up-email" required>
+        <label for="sign-up-password">Password</label>
+        <input type="password" id="sign-up-password" required>
+        <input type="submit" value="Sign Up">
+      </form>
     </div>
-<div id="user-banner">
-  <span id="user-email"></span>
-  <button id="sign-out">Sign Out</button>
-</div>
+  </div>
 
+    <!-- User Banner -->
+  <div id="user-banner" style="display:none">
+    <span id="user-email"></span>
+    <button id="sign-out">Sign Out</button>
+  </div>
 
-    <script type="module" src="app.js"></script>
-
+  <script src="firebase-config.js" type="module"></script>
+  <script src="app.js" type="module"></script>
 </body>
 </html>
+
+ 

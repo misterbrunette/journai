@@ -1,7 +1,6 @@
 {
   "name": "journai-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "parcel serve index.html",
@@ -16,5 +15,6 @@
   },
   "dependencies": {
     "firebase": "^8.10.0"
-  }
+  },
+  "description": ""
 }
