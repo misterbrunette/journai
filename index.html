@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Journai</h1>
+        <nav>
+            <ul>
+                <li id="sign-in-link"><a href="#">Sign In</a></li>
+                <li id="sign-up-link"><a href="#">Sign Up</a></li>
+                <li id="sign-out-link" style="display: none;"><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="journal">
+            <h2>My Journal Entries</h2>
+            <form id="journal-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+                <label for="content">Content:</label>
+                <textarea id="content" required></textarea>
+                <button id="save-button" disabled>Save Entry</button>
+            </form>
+            <table id="journal-entries-table" border="1"></table>
+        </section>
+        <section id="feedback">
+            <h2>Feedback from Journai AI</h2>
+            <form>
+                <label for="journal-entries">Select a journal entry:</label>
+                <select id="journal-entries"></select>
+                <button type="button" id="request-feedback">Request Feedback</button>
+            </form>
+            <p id="feedback-text"></p>
+        </section>
+    </main>
+
+    <!-- Sign in modal -->
+    <div id="sign-in-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign In</h2>
+            <form id="sign-in-form">
+                <label for="sign-in-email">Email:</label>
+                <input type="email" id="sign-in-email" required>
+                <label for="sign-in-password">Password:</label>
+                <input type="password" id="sign-in-password" required>
+                <button type="submit">Sign In</button>
+                <p id="auth-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign up modal -->
+    <div id="sign-up-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="sign-up-form">
+                <label for="sign-up-email">Email:</label>
+                <input type="email" id="sign-up-email" required>
+                <label for="sign-up-password">Password:</label>
+                <input type="password" id="sign-up-password" required>
+                <button type="submit">Sign Up</button>
+                <p id="auth-error"></p>
+            </form>
+        </div>
+    </div>
+<div id="user-banner">
+  <span id="user-email"></span>
+  <button id="sign-out">Sign Out</button>
+</div>
+
+
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>

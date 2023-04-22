@@ -1,0 +1,3 @@
+@echo off
+echo Starting the server...
+http-server -p 1234
